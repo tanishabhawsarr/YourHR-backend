@@ -13,8 +13,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions={
-    origin:'http://localhost:5173',
-    credentials:true
+    origin: [
+            "http://localhost:5173",
+            "http://localhost:4173",
+            process.env.CLIENT_URL,
+        ],
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials:true
 }
 app.use(cors(corsOptions));
 
