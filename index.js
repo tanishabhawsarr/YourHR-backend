@@ -25,6 +25,10 @@ app.use(cors(corsOptions));
 
 const PORT=process.env.PORT || 3000;
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the API!');
+});
+
 app.use("/api/v1/user",userRoute);
 
 
